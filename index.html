@@ -13,21 +13,27 @@
 
 <div id="chat" style="height:600px;"></div>
 
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/oversea/index.js"></script>
+
 <script>
+window.onload = function () {
   new CozeWebSDK.WebChatClient({
     config: {
-      bot_id: '7628115867796308021'
+      bot_id: '7628115867796308021', // BOT ID của bạn
     },
     componentProps: {
-      title: 'Chatbot DSA'
+      title: 'Trợ lý DSA',
+      container: document.getElementById("coze-container")
     },
-    el: document.getElementById('chat'),
-    ui: {
-      base: {
-        layout: 'inline'
+    auth: {
+      type: 'token',
+      token: 'pat_U0Oem7qh98IjsRetrG0OJd2JuThEFHP07tVaUqZxAAm9eULukTOghV09jypTGEdJ', // 🔴 THAY TOKEN THẬT
+      onRefreshToken: function () {
+        return 'pat_U0Oem7qh98IjsRetrG0OJd2JuThEFHP07tVaUqZxAAm9eULukTOghV09jypTGEdJ'
       }
     }
   });
+}
 </script>
 
 </body>
